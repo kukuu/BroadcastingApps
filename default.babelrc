@@ -1,0 +1,4 @@
+{
+  "stage": 0    // (Proposal Stage) Level 1 used to enable `es7.objectRestSpread`
+                //                  Level 0 to support class property initializers
+}
