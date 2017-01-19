@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>REACT Tabbed Navigation - Alexander Adu-Sarkodie</title>	
+	<script src='js/run.js'></script>
+	<script src='http://fb.me/react-0.12.2.js'></script>
+	<script src='http://fb.me/JSXTransformer-0.12.2.js'></script>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+	<link rel='stylesheet' href='css/base.css'>
+</head>
+<body>
+	<script>
+		var Tab = React.createClass({
+		    handleClick: function(e){
+		        e.preventDefault();
+		    	this.props.handleClick();
+		    },
+		    
+		    render: function(){
+		        return (
+		            <li className={this.props.isCurrent ? 'current' : null}>
+		            	<a onClick={this.handleClick} href={this.props.url}>
+		            		{this.props.name}
+			            </a>
+		            </li>
+		        );
+		    }
+		});
+
+		var Tabs = React.createClass({
+		    handleClick: function(tab){
+		    	this.props.changeTab(tab);
+		    },
+		    
+		    render: function(){
+		        return (
+		            <nav>
+		                <ul>
+		                {this.props.tabList.map(function(tab, index) {
+		                    return (
+		                        <Tab
+		                            handleClick={this.handleClick.bind(this, index)}
+		                            key={tab.id}
+		                            url={tab.url}
+		                            name={tab.name}
+		                            isCurrent={(this.props.currentTab === index)}
+		                         />
+		                    );
+		                }.bind(this))}
+		                </ul>
+		            </nav>
+		        );
+		    }
+		});
+
+		var App = React.createClass({
+			getInitialState: function () {        
+		        return {
+		            tabList: tabList,
+		            currentTab: 0
+		        };
+		    },
+
+		    changeTab: function(index) {
+		        this.setState({ currentTab: index });
+		    },
+
+		    render: function(){
+		        return(
+		            <div>
+		            	<h1>Firefly - <small><small>  Alexander Adu-Sarkodie </small></small> </h1>
+		            	<h3>Heroes and Villains</h3>
+		                <Tabs
+		            		currentTab={this.state.currentTab}
+		            		tabList={this.state.tabList}
+		            		changeTab={this.changeTab}
+		            	/>
+		            	<div className="content">
+		            		<p>{this.state.tabList[this.state.currentTab].points}</p>
+		            		{this.state.tabList[this.state.currentTab].content}
+		            	</div>
+		            	<p> <small><small>LinkedIn - https://www.linkedin.com/in/alexander-adu-sarkodie-063b4b4a/ <br />
+		            		GitHub - https://github.com/kukuu <br />
+		            		Profile - http://goldhawk-college.com/istudio/profile.html</small></small>
+		            	</p>
+		            </div>
+		        );
+		    }
+		});
+
+		var tabList = [
+		    {
+		        'name': 'C-3P0',
+		        'url': '/c3p0',
+		        'content':
+		            <div className="c3p0">
+		            	<img src="http://s.mlkshk.com/r/104TN" />
+		            </div>,
+		        'points': 2983
+		    },
+		    {
+		        'name': 'Darth Vadar',
+		        'url': '/darthvadar',
+		        'content':
+		            <div className="dvarda">
+		            	<img src="http://s.mlkshk.com/r/103AG" />
+		            </div>,
+		        'points': 2676
+		    },
+		    {
+		        'name': 'BB8',
+		        'url': '/bb8',
+		        'content':
+		       		<div className="bb8">
+		            	<img src="http://s.mlkshk.com/r/JAUD" />
+		            </div>,
+		        'points': 1292
+		    },
+		    {
+		        'name': 'Boba Fett',
+		        'url': '/boba-fett',
+		        'content':
+		        	<div className="leo">
+		            	<img src="http://s.mlkshk.com/r/ZJPL" />
+		            </div>,
+		        'points': 872
+		    }
+		];
+
+		React.render(
+		    <App />,
+		    document.body
+		);
+	</script>
+</body>
+</html>
