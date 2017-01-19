@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+    <title>jazzUP : Author - Alexander Adu-Sarkodie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="asset/styles/css/main.css">
+    <link rel="stylesheet" href="asset/styles/css/page.css"> 
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!--Gallery styles-->
+    <link href="gallery/src/css/normalize.css" rel="stylesheet">
+    <link href="gallery/src/css/cycler.css" rel="stylesheet">
+    <!--end gallery styles-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.js"></script>
+	<script  src="scripts/countries.js"></script>
+	<style type="text/css">
+
+       .vc a {
+          text-decoration: :none;
+          width: 180px;
+          display: block;
+        }
+
+      .vc a:link {
+            text-decoration: none;
+        }
+
+       .vc  a:visited {
+            text-decoration: none;
+        }
+
+      .vc  ul li {
+          display: inline-block;
+          padding-right: 20px;
+          cursor: :hover;
+        }
+        
+      .vc   h1 {
+            width:400px;
+        }
+
+       .vc  ul li {
+          display: inline-block;
+          padding-right: 20px;
+        }
+
+
+      .vc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+      .vc li {
+            float: left;
+            border-bottom:none;
+            border-bottom-width: 0;
+            margin: 3px 3px 0px 3px;
+            padding: 5px 5px 0px 5px;
+            background-color: #CCC;
+            color: #696969;
+            width: 237px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    .vc #mainView {
+            border: 1px solid black;
+          clear: both;
+          /*padding: 0 1em;*/
+        }
+    .vc .active {
+            background-color: #fff;
+            color: #000;
+        }
+
+      .vc #mainView ,.vc #viewOne {
+            background-color: #fff;
+        }
+
+       .vc .thumb-icon {
+            float:left; 
+            margin-right:15px;
+        }
+
+        .vc .thumb-icon img {
+            margin: 20px 0 0 20px;
+        }
+
+        .vc .summary {
+            float:left;
+            width:58%;
+        }
+
+        .vc .episode-suummary {
+            clear:both;
+            width: 600px;
+        }
+        .vc .episode-features  h1,
+        .vc .episode-features  span,
+        .vc .new-episode {
+             float:left;
+        }
+
+        .vc .episode-features  h1 {
+             margin-bottom: 0;
+        }
+
+        .vc .duration {
+            margin-top:35px;
+            padding-left:20px;
+        }
+        .vc .icons,
+        .vc .ad, 
+        .vc .new-episode  {
+            padding:8px;
+            background-color: red;
+            color: #fff;
+        }
+
+        .vc .icons {
+            margin-left:20px;
+        }
+        .vc .new-episode {
+            margin-top:15px;
+        }
+
+        .vc p {
+          padding-top: 10px;
+        }
+
+        .vc .tab-content {
+            clear: both;
+            padding-top: 15px;
+        }
+          
+  </style>
+  </head>
+  <body>
+  	<div class="banner">
+  		<a href="#f-nav" class="f-nav-link">Menu</a>
+		  <h1><span class="logo"><small>jU</small></span>jazzUp<small><small> (Property of Alexander Adu-Sarkodie)</small></small></h1>
+	</div>
+
+	  <div id="pattern" class="pattern mod">
+			<header class="header">
+				<a href="#f-nav" class="f-nav-link">--)</a>
+			</header>
+			<div class="main-content">
+				  <div class="main-col-l">
+				 <!-- <p><strong>jazzUp</strong> is a <i>unique social network experience and chill out forum for discussions, entertainment and shopping</i>. Where in real time, you can view, chat and monitor all of your media, shopping, entertainment and interactive services from a single self-service interface.<br /><br />
+				  	The owner of the forum (Captain) can invite up to seven more users (Chatters). We combine digital broadcasting  and social networking to steer advertising and fulfilment.
+				  	</p>-->
+				    <h2 style="margin-top: 0">Isle of Dogs!! <!--<span class="invite">you can invite up to 7 people to chat (domestic licence)</span>--></h2>
+					<div class="container">
+				  		<img id="largeImg" class="largeImg" src="" alt="" />
+				        <div class="video"></div>
+				        <div class="thumbs"></div>
+						<div class="screen">
+							<div class="screen-one">Screen 1</div>
+							<div class="screen-two">Screen 2 - Comming soon!</div>
+						</div>
+					</div>
+				  	<div>
+				  		
+				  		<div id="tab-block" class="vc" style="clear:both;">
+			  				<section ng-app="appEPG">
+						      <div ng-controller="epgCtrl as vm">
+						          <ul ng-init="vm.tab=0">
+						              <li ng-repeat="item in vm.data">
+						                <a href ng-click="vm.tab = item.program">{{item.name}}</a><br />
+						                {{item.runningstart}}-{{item.runningend}}
+						              </li>
+						          </ul>
+						          <div  class="tab-content" ng-repeat="item in vm.data" ng-show="vm.tab === item.program">
+						                  <div class="thumb-icon">
+						                        <img src="{{item.thumbIcon}}" />
+						                       <!--<p>
+						                            <span class="icons">{{item.icons}}</span> <span class="ad">{{item.ad}}</span>
+						                        </p>-->
+						                  </div>
+						                  <div class="summary">
+						                      <div class="episode-features">
+						                          <h1>{{item.episode}}</h1><span class="new-episode">{{item.newEpisode}}</span><span class="duration"> {{item.start}} - {{item.end}}</span>
+						                      </div>
+						                      <div class="episode-suummary">
+						                          <p>{{item.summary}}</p>
+						                          <a href="#"><img src="{{item.twitIcon}}" width="35px" height="35px" /></a>
+						                      </div>      
+						                  </div>
+						               </div>          
+						      </div>
+						    </section>
+				  		</div>
+
+				         <div id="content" style="clear:both;"></div>	
+
+				  	</div>
+				  </div>
+				  <div class="main-col-r">
+				  	<!--<a href="http://localhost:3040/login.html" class="invitation">Send invitation</a>-->
+				  	<!--<div class="col-r-row">
+						<img  width="158" height="300" class="first" src="asset/images/front-mini-cadigan.jpg" alt="AUTOGRAPH Wrap Front Belted Overcoat">
+						<img  width="158" height="300" class="first" src="asset/images/SD_01_T50_7121_T0_X_EC_90.jpg" alt="AUTOGRAPH Wrap Front Belted Overcoat">
+					</div>-->
+					<div class="col-r-row">
+						<img  width="158" height="300" class="first" src="asset/images/kitty-zip.jpg" alt="Island Escape 25ml">
+						<img  width="158" height="300" class="first" src="asset/images/SD_07_T22_1786_D9_X_EC_0.jpg" alt="Island Escape 25ml">
+					</div>
+					<!--<div class="col-r-row">
+						<img  width="158" height="300" class="first" src="http://tse1.mm.bing.net/th?&id=OIP.Meed16566e455b2366bf5e01907dd5ff8o0&w=235&h=299&c=0&pid=1.9&rs=0&p=0" alt="AUTOGRAPH Wrap Front Belted Overcoat">
+						<img  width="158" height="300" class="first" src="asset/images/addidas-1.jpg" alt="AUTOGRAPH Wrap Front Belted Overcoat">
+					</div>-->
+						<p class="rs-bottom" style="clear:both;">Select Country to search for radio station:</p>
+			        	<select id="country2" name="country2"></select>
+			        	 <input type="submit" value="submit" name="submit" style="float:right;">
+				        <br />
+				        <script language="javascript">
+				            populateCountries("country2");
+				        </script>
+				        <div id="radio-results"></div>			
+				 </div>		    
+			</div>
+		
+			<footer>
+				<ul id="f-nav" class="f-nav" role="navigation">
+					<li><a href="#">Shopping</a></li>
+					<li><a href="#">eBooks + Magazines</a></li>
+					<li><a href="#">Entertainment</a></li>
+				</ul>
+				<br />
+			</footer>
+
+			<div class="social-m" class="clear-l">
+				<!--<a href="#">facebook</a>  <a href="#">twitter</a>  <a href="#" class="last">google+</a><br />-->
+				<form name ="myform">
+					<input type="text" class="search-box" name="username" placeholder="Enter your user name"><input type="password" name="pword" class="search-box" placeholder="Enter your password">
+					<input type="button" value="Log in" name="Submit"   onclick="validate()">
+				</form>
+				<!--<p class="captain">Captain only.</p>-->
+			</div>
+	</div>
+    <script type="text/babel" src="scripts/comment.js"></script>
+    <script src="gallery/src/js/cycler.js"></script>
+    <script  src="scripts/admin-login.js"></script>
+    <script>
+          var epgapp = angular.module('appEPG', []);
+
+          epgapp.controller('epgCtrl', ['$scope',
+            function($scope) {
+              var vm = this;
+
+              vm.data = [{
+                
+                name: "New",
+                start: '3pm',
+                end: '4.45pm',
+                runningstart:"1pm",
+                runningend:"2.45pm",
+                thumbIcon:"gallery/src/images/bbc-news.png",
+                icons:"ICONS",
+                ad:"AD",
+                episode:"New",
+                label:"New",
+                newEpisode:"NEW",
+                summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                title: "oneTitle",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                year: "2013",
+                img: "http://static.hdw.eweb4.com/media/wp_400/1/5/42735.jpg",
+                program: 1
+              }, {
+                name: "Sherlock",
+                start: '1pm',
+                end: '2.45pm',
+                runningstart:"11pm",
+                runningend:"2.45am",
+                thumbIcon:"gallery/src/images/band-of-brothers.png",
+                icons:"ICONS",
+                ad:"AD",
+                episode:"Sherlock",
+                label:"Sherlock",
+                newEpisode:"New",
+                summary:"S4 Ep.0 The Abominable Bride. Sherlock Holmes and Doctor Watson investigate a mysterious ghostly bride. We've been here before - but what if this wasn't the modern day but the late Victorian period?  What if the world's most famous consulting detective and his best friend lived in Baker Street of steam trains, hansome cabs, top hats and a frock coat? Welcome to Sherlock in 1895!",
+                twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                title: "twoTitle",
+                description: "Quisque pulvinar libero sed eros ornare",
+                year: "2014",
+                img: "http://static.hdw.eweb4.com/media/wp_400/1/1/8519.jpg",
+                program: 2
+              }, {
+                name: "Made in Chelsea",
+                start: '6pm',
+                end: '9.45pm',
+                runningstart:"9pm",
+                runningend:"12.45pm",
+                thumbIcon:"gallery/src/images/breaking-bad.png",
+                icons:"ICONS",
+                ad:"AD",
+                episode:"Made in Chelsea",
+                label:"",
+                newEpisode:"New",
+                summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                title: "threeTitle",
+                description: "Cras accumsan massa vitae tortor vehicula .",
+                year: "2015",
+                img: "http://static.hdw.eweb4.com/media/wp_400/1/5/43326.jpg",
+                program: 3
+              }, {
+                name: "Eastenders",
+                start: '6pm',
+                end: '9.45pm',
+                runningstart:"1pm",
+                runningend:"2.45pm",
+                thumbIcon:"gallery/src/images/the-big-bang-theory.png",
+                icons:"ICONS",
+                ad:"AD",
+                episode:"Eastenders",
+                label:"",
+                newEpisode:"New",
+                summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                title: "FourTitle",
+                description: "Suspendisse vitae mattis magna.",
+                year: "2011",
+                img: "http://static.hdw.eweb4.com/media/wp_400/1/5/42413.jpg",
+                program: 4
+              }, {
+                    name: 'Dr Who',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"1pm",
+                    runningend:"2.45pm",
+                    thumbIcon:"gallery/src/images/bbc-news.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"Dr Who",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     thingy: 5
+            },{
+                    name: 'Match of the Day 2',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"1pm",
+                    runningend:"2.45pm",
+                    thumbIcon:"gallery/src/images/the-big-bang-theory.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"Match of the Day 2",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     program: 6
+            },{
+                    name: 'Harry Porter',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"9am",
+                    runningend:"12.45pm",
+                    thumbIcon:"gallery/src/images/breaking-bad.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"Harry Porter",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     program: 7
+            },{
+                    name: 'Top of the Pops',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"1pm",
+                    runningend:"2.45pm",
+                    thumbIcon:"gallery/src/images/bbc-news.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"Top of the Pops",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     program: 8
+            },{
+                    name: 'The One Show',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"1pm",
+                    runningend:"2.45pm",
+                    thumbIcon:"gallery/src/images/the-big-bang-theory.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"The One Show",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     program: 9
+            },{
+                    name: 'Dirty Dancing',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"10am",
+                    runningend:"11.45am",
+                    thumbIcon:"gallery/src/images/band-of-brothers.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"Dirty Dancing",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     program: 10
+            },{
+                    name: 'The Karate Kids',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"1pm",
+                    runningend:"2.45pm",
+                    thumbIcon:"gallery/src/images/band-of-brothers.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"The Karate Kids",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     program: 11
+            },{
+                    name: 'Rocky Balboa',
+                    start: '6pm',
+                    end: '9.45pm',
+                    runningstart:"10am",
+                    runningend:"3.45pm",
+                    thumbIcon:"gallery/src/images/band-of-brothers.png",
+                    icons:"ICONS",
+                    ad:"AD",
+                    episode:"Rocky Balboa",
+                    label:"",
+                    newEpisode:"New",
+                    summary:"Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu.",
+                    twitIcon:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYyyt0AK3wpXDIXGDPQNUNZVQeFCBOPPavT6eZGwhOFWCUPCNl",
+                     program: 12
+            } ];
+      }
+    ]);
+        </script>
+
+  </body>
+</html>

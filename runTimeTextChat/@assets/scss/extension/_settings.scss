@@ -1,0 +1,44 @@
+/** General Configuration SASS Styles **/
+
+/* 
+  Allows angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+/* Adds IE10 responsive support */
+@-ms-viewport{
+  width: device-width;
+}
+
+/** Mobile first breakpoints **/
+$screen-sm : 768px;
+$screen-md : 992px;
+$screen-lg : 1200px;
+
+/* Google Fonts - OpenSans */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);
+
+$font-light: 300;
+$font-normal: 400;
+$font-semibold: 600;
+$font-bold: 700;
+$font-extrabold: 800;
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+/** Colours **/
+$light-blue: #47A8E6;
+$gray: #9B9B9B;
+$greyBg: #F5F5F5;
+$headerKeyline: #e5e5e5;
+
+/** remove link's blue glow **/
+a:focus {
+    outline:none;
+}

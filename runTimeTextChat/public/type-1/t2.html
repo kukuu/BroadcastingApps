@@ -1,0 +1,125 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Responsive Design & Mobile Firs -  Prototype4 v.02</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="data" content="Responsive Design, Flexible Grid, Media Queries, Media Query Listeners, HTML5" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/plugin/slides/standard/slide.css">
+	<style>
+		.box-large {
+    		width: 98%;
+		}
+		
+		.box {
+    	background-color: none;
+	}
+	</style>
+
+    <!-- AMD /Require JS -->
+    <script data-main="scripts/main" src="scripts/require-jquery.js"></script>
+    <script type="text/javascript">
+         if('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
+                 var w = screen.width,
+                     t;
+                 switch (true){
+                     case (w > 1200):
+                         t = '@import url("css/wide.css") (min-width: 1056px);' + t;
+                     case ((w > 640) || (screen.height > 800)):
+                         t = '@import url("css/tablet.css") (min-width: 641px);' + t;
+                     default:
+                         t = '@import url("css/compact.css") (max-width: 640px);' + t;
+                 }
+                 document.write('<style type="text/css">'+t+'</style>');
+        }
+    </script>
+
+    
+    <!-- Flexslider -->
+	<link href="css/plugin/slides/flexslider/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/plugin/slides/flexslider/shThemeDefault.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/plugin/slides/flexslider/demo.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/plugin/slides/flexslider/flexslider.css" type="text/css" media="screen" />
+    <script src="scripts/plugin/slides/flexslider/modernizr.js"></script>
+    <script  src="scripts/plugin/slides/flexslider/jquery.flexslider.js"></script>
+
+</head>
+<body>
+    <div id="one" data-role="page">
+        <div class="masterhead">
+            <header>
+                <hgroup>
+                    <h1>Responsive Design:  Mobile Prototype4 v.02 </h1>
+                    <nav>
+                        <div class="nav-primary">
+                                 <!--global nav / fly out at  breakpoint-->
+		                 </div><!-- /end main .global-nav -->
+                    </nav>
+                </hgroup>
+            </header>
+        </div>
+        <section>
+	         
+            
+			 <div id="adaptive-content"  class="box box-large no-margin">
+                  <section class="slider">
+                    <h2>Touch Carousel</h2>
+                    <div class="flexslider carousel">
+                      <ul class="slides">
+                        <li class="slide">
+  	    	                <img class="lazy" src="images/thumbnails/asia-de-cuba-london-1.jpg"  />
+  	    		        </li>
+  	    		       
+                      </ul>
+                    </div>
+					<p><a href="http://www.goldhawk-college.com/istudio/">Home</a></p>
+                  </section>     
+	         </div><!-- /end lazy load -->
+            <!-- /end profile -->	 
+        </section>
+        
+    </div>
+
+  <script type="text/javascript" charset="utf-8">
+
+   
+       
+      //Flexslider
+      $(function () {
+         // SyntaxHighlighter.all();
+      });
+      $(window).load(function () {
+          $('.flexslider').flexslider({
+              animation: "slide",
+              animationLoop: false,
+              itemWidth: 210,
+              itemMargin: 5,
+              start: function (slider) {
+                  $('body').removeClass('loading');
+              }
+          });
+      });
+  </script>
+     <script>
+		var items = $('.slide');
+		
+			for(i=0;i<items.length;i++){
+			
+				if(i==1){
+					$('.slide')
+					.append('<li class="slide"><img class="lazy" src="http://www.goldhawk-college.com/istudio/type-1/images/thumbnails/the-ritz-restaurant-london-1.jpg" /></li>');	
+				}
+			}
+	
+	</script>
+   
+  
+</body>
+</html>
+
+
+
+  

@@ -1,0 +1,50 @@
+/** SASS Extensions/Inheritances for Scaffolding **/
+@import "settings";
+@import "../mixins/animation";
+@import "../partials/header";
+@import "../partials/footer";
+
+/** No Marging - No Padding **/
+.glued{
+    margin: 0;
+    padding: 0;
+}
+
+/** Top Marging Carousels **/
+#view-container > div{
+    margin-top: 40px;
+}
+
+/** 5 Columns Layout **/
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+@media (min-width: $screen-sm) {
+.col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: $screen-md) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: $screen-lg) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+}

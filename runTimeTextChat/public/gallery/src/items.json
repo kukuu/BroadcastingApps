@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "name": "Image1",
+      "type": "video",
+      "large": "gallery/src/images/giantmechanicalman.jpeg",
+      "width:": 650,
+      "height": 400,
+      "thumb": "gallery/src/images/img1-thumb.jpg"
+    },
+    {
+      "name": "Image2",
+      "type": "video",
+      "large": "gallery/src/images/nightingalefalling.jpeg",
+      "width:": 650,
+      "height": 400,
+      "thumb": "gallery/src/images/img2-thumb.jpg",
+      "mp4": "gallery/src/video/mov_bbb.mp4",
+      "webm": "http://video-js.zencoder.com/oceans-clip.webm",
+      "ogg": "http://video-js.zencoder.com/oceans-clip.ogv"
+    },
+    {
+      "name": "Image3",
+      "type": "video",
+      "large": "gallery/src/images/lipstika.jpeg",
+      "width:": 650,
+      "height": 400,
+      "thumb": "gallery/src/images/img3-thumb.jpg",
+      "mp4": "gallery/src/video/mov_bbb.mp4",
+      "webm": "http://video-js.zencoder.com/oceans-clip.webm",
+      "ogg": "http://video-js.zencoder.com/oceans-clip.ogv"
+    },
+    {
+      "name": "Image4",
+      "type": "video",
+      "large": "gallery/src/images/hollywoodbanker.jpeg",
+      "width:": 650,
+      "height": 400,
+      "thumb": "gallery/src/images/img4-thumb.jpg",
+      "mp4": "gallery/src/video/mov_bbb.mp4",
+      "webm": "http://video-js.zencoder.com/oceans-clip.webm",
+      "ogg": "http://video-js.zencoder.com/oceans-clip.ogv"
+    }
+  ]
+}

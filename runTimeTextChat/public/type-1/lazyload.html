@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Responsive Design & Mobile Firs -  Prototype4 v.02</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <meta name="data" content="Responsive Design, Flexible Grid, Media Queries, Media Query Listeners, HTML5" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/plugin/slides/standard/slide.css">
+
+    <!-- AMD /Require JS -->
+    <script data-main="scripts/main" src="scripts/require-jquery.js"></script>
+    <script type="text/javascript">
+         if('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
+                 var w = screen.width,
+                     t;
+                 switch (true){
+                     case (w > 1200):
+                         t = '@import url("css/wide.css") (min-width: 1056px);' + t;
+                     case ((w > 640) || (screen.height > 800)):
+                         t = '@import url("css/tablet.css") (min-width: 641px);' + t;
+                     default:
+                         t = '@import url("css/compact.css") (max-width: 640px);' + t;
+                 }
+                 document.write('<style type="text/css">'+t+'</style>');
+        }
+    </script>
+    <script src="scripts/plugin/lazyload/jquery.lazyload.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $("img").lazyload({
+                event: "scrollstop"
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: 'http://restfulapi.alastair.lb-bat-dev-01.livebookings.lan/cuisine',
+                dataType: 'jsonp',
+                data: {
+                    max: 4
+                },
+                jsonp: 'jsoncallback',
+                success: function (data) {
+                    for (var i = 0; i < data.length; i += 1) {
+                        $('#restaurantList').append('<li><a href="#">' + data[i].name + '</a></li>');
+                    }
+                }
+            });
+        });
+
+    </script>
+  
+    <!-- Flexslider -->
+	<link href="css/plugin/slides/flexslider/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/plugin/slides/flexslider/shThemeDefault.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/plugin/slides/flexslider/demo.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/plugin/slides/flexslider/flexslider.css" type="text/css" media="screen" />
+<style>
+	.lazyload {
+    clear: both;
+    margin-left: 0;
+    width: 98%;
+}
+
+</style>
+    <script src="scripts/plugin/slides/flexslider/modernizr.js"></script>
+    <script  src="scripts/plugin/slides/flexslider/jquery.flexslider.js"></script>
+    <script src="scripts/feature/feature.js" charset="utf-8"></script>
+     
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".btn-slide").click(function () {
+                $("#panel").slideToggle("slow");
+                $(this).toggleClass("active"); return false;
+            });
+
+
+        });
+</script>
+
+   
+
+</head>
+<body>
+    <div id="one" data-role="page">
+        <div class="masterhead">
+            <header>
+                <hgroup>
+                     <h1>Responsive Design: Bookatable.com - Mobile Prototype4 v.02 </h1>
+                    <nav>
+                        <div class="nav-primary">
+                                 <!--global nav / fly out at  breakpoint-->
+		                 </div><!-- /end main .global-nav -->
+                    </nav>
+                </hgroup>
+            </header>
+        </div>
+        <section>
+	   
+
+            <div id="lazy-load"  class="box width-common lazyload">
+
+                      <a href="../index-i.html">Home</a>
+                
+	                        <h4>Lazy load</h4>
+                            <div class="media-content">
+                                  <p>
+                                  Images below the fold (the ones lower than window bottom) are not loaded. When scrolling down they come into view. Empty cache and shift-reload to test again.
+                                </p>
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/asia-de-cuba-london-1.jpg" width="146" height="104" alt="asia-de-cuba-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/cafe-des-amis-london-1.jpg" width="146" height="104" alt="cafe-des-amis-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/oxo-tower-london-1.jpg" width="146" height="104" alt="oxo-tower-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/the-ritz-restaurant-london-1.jpg" width="146" height="104" alt="the-ritz-restaurant-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/tuttons-london-1.jpg" width="146" width="146" height="104" alt="tuttons-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/asia-de-cuba-london-1.jpg" width="146" height="104" alt="asia-de-cuba-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/cafe-des-amis-london-1.jpg" width="146" height="104" alt="cafe-des-amis-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/asia-de-cuba-london-1.jpg" width="146" height="104" alt="asia-de-cuba-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/cafe-des-amis-london-1.jpg" width="146" height="104" alt="cafe-des-amis-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/oxo-tower-london-1.jpg" width="146" height="104" alt="oxo-tower-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/the-ritz-restaurant-london-1.jpg" width="146" height="104" alt="the-ritz-restaurant-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/tuttons-london-1.jpg" width="146" width="146" height="104" alt="tuttons-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/asia-de-cuba-london-1.jpg" width="146" height="104" alt="asia-de-cuba-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/cafe-des-amis-london-1.jpg" width="146" height="104" alt="cafe-des-amis-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/oxo-tower-london-1.jpg" width="146" height="104" alt="oxo-tower-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/the-ritz-restaurant-london-1.jpg" width="146" height="104" alt="the-ritz-restaurant-london-1">
+                                <img class="lazy"src="images/thumbnails/grey.gif" data-original="images/thumbnails/tuttons-london-1.jpg" width="146" width="146" height="104" alt="tuttons-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/asia-de-cuba-london-1.jpg" width="146" height="104" alt="asia-de-cuba-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/cafe-des-amis-london-1.jpg" width="146" height="104" alt="cafe-des-amis-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/asia-de-cuba-london-1.jpg" width="146" height="104" alt="asia-de-cuba-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/cafe-des-amis-london-1.jpg" width="146" height="104" alt="cafe-des-amis-london-1">
+                                <img src="images/thumbnails/grey.gif" data-original="images/thumbnails/oxo-tower-london-1.jpg" width="146" height="104" alt="oxo-tower-london-1">
+                                <img  class="lazy"src="images/thumbnails/grey.gif" data-original="images/thumbnails/the-ritz-restaurant-london-1.jpg" width="146" height="104" alt="the-ritz-restaurant-london-1">
+                                <img class="lazy" src="images/thumbnails/grey.gif" data-original="images/thumbnails/tuttons-london-1.jpg" width="146" width="146" height="104" alt="tuttons-london-1">
+                    
+                            </div>
+                            
+	         </div><!-- /end mustard check -->
+
+        </section>
+       
+    </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mockjax/1.5.1/jquery.mockjax.js"></script>
+<script>
+    $.mockjax(function (settings) {
+
+    switch (settings.url) {
+        case 'scripts/mock/restaurant.json':
+            return {
+                proxy: 'http://restfulapi.alastair.lb-bat-dev-01.livebookings.lan/restaurant'
+            };
+        default: return false;
+    }
+});
+</script>
+  <script type="text/javascript" charset="utf-8">
+
+      //Lazyload
+      $(function () {
+          $("img").lazyload();
+      });
+	
+        // Device feature tests
+        window.onload = tests.run();
+       
+      //Flexslider
+      $(function () {
+         // SyntaxHighlighter.all();
+      });
+      $(window).load(function () {
+          $('.flexslider').flexslider({
+              animation: "slide",
+              animationLoop: false,
+              itemWidth: 210,
+              itemMargin: 5,
+              start: function (slider) {
+                  $('body').removeClass('loading');
+              }
+          });
+      });
+  </script>
+    <script type="text/javascript" src="scripts/lib/ember.min.js"></script>
+     <script type="text/javascript">
+         App = SC.Application.create();
+         App.personController = SC.Object.create({
+             firstName: null,//property first name
+             phoneNumber: null, // property email address
+             profile: function () {
+                 return 'Hi ' + this.get('firstName') + ' (phone number : ' + this.get('phoneNumber') + ')' +
+                     ' , thanks for confirming. We will send you SMS with more details shortly.';
+             }.property('firstName', 'phoneNumber'),
+
+             didConfirm: false
+         });
+    </script>
+  
+</body>
+</html>
+
+
+
+  

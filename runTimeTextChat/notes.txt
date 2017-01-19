@@ -1,0 +1,29 @@
+<p><strong>viewChat</strong> is a <i>unique social network chill out forum for discussions, entertainment and shopping</i>. Where, in real time, you can view, chat and monitor all of your media, shopping, entertainment and interactive services from a single self-service interface.<br /><br />
+				  		The owner of the forum (Captain) can invite up to seven more users (Chatters).
+				  		</p>
+
+				  		<ul>		
+				  			<li><strong>Business model </strong></li>
+				  			<li>&bull;  The primary account holder is the <strong>Administrator</strong> of the forum. You must register to have an account and be an administrator.</li>
+				  			<li>&bull;  By being an Administrator, you can invite up to <strong>7 people</strong> for a free domestic standard licence.</li>
+				  			<li>&bull;  When you have logged in and registered, the <strong>send invitation</strong>  button will be activated. The Button when <strong>clicked</strong> will activate  configuration overlay screen (will pop up) where you can send invitations (up to 7). To come in version 1.01</li>
+				  			<li>&bull; Version1 will release without the main global navigation. Instead a salutation with the users nick name with greetings.</li>
+				  			<li>&bull; Storage space</li>
+				  			<li>Storage costs for main content and sub-contents will apply.</li>
+				  			<li>&bull; The Text Chat Application is free.</li>
+				  			<li>&bull; All submit buttons are by default deactivated unless signed in.</li>
+				  			<li>&bull; If not subsribed default media types will appear belonging to chatView.</li>
+				  			<li>&bull; Invitations can be by email or mobile</li>
+				  			<li>&bull; Licencing: free for up 7 to persons (social)</li>
+				  			<li>&bull; <span class="red">Red</span> light under main media changes to <span class="green">green</span> when authentication is granted</li>
+				  			<li>&bull; Upload buttons are enabled after registeration and agreeing with licensing</li>
+				  			<li>&bull; For now only the Administrator can customise the media assests (Version 1)</li>
+				  			<li>&bull; Upload and login send buttons will be disabled for invitees except for administrator.</li>
+				  			<li>&bull; For security reasons, Administrator will have right on whose upload buttons to enable / disable within configuration settings.</li>
+				  			<li>&bull; The Global navigation : Shopping, eBooks, Magazines, Movies, Commedy and Sport will solely belong to viewChat and is an advertising channel for online eCommerce.</li>
+				  			<li>Version 1.01 will come with social network integration.</li>
+				  			<li>For purposes of RAD and deployment v 1.0 may not have "Send invitaion button". This will be available in v1.01. Invitation can be sent by text messaging (Name and password in v1.0).</li>
+				  		</ul>
+http://jsfiddle.net/SpYk3/rYzAY/ date
+http://www.nikola-breznjak.com/blog/nodejs/how-to-delete-node_modules-folder-on-windows-machine/ -rimraf (deleting folders and sub-folders)
+webpack - https://web-design-weekly.com/2014/09/24/diving-webpack/

@@ -1,0 +1,154 @@
+﻿
+/*
+    Stylesheet for feature properties:
+    
+*/
+    body {
+				background: #fff;
+				margin:0;
+				padding:0;
+				font-family: "Lucida Grande", Verdana, Arial, sans-serif
+			}
+			#wrap {
+				min-width: 240px;
+				max-width: 800px;
+				margin:0 auto;
+				padding:0;
+			}
+			h1 {
+				background: #fff;
+				margin:0;
+				padding:3px 6px;
+				color: #03C;
+			}
+			h2 {
+				background: #4CA826;
+				margin:3px 0;
+				padding:3px 6px;
+				color: #fff;
+			}
+			p {
+				margin:0;
+				padding:3px 6px;
+				font-style: italic;
+				font-size: .9em;
+			}
+			dl {
+				margin:0;
+				padding:0;
+			}
+			dt {
+				background: #CAD5F5;
+				margin:0;
+				padding:3px 6px;
+				font-weight: bold;
+				font-size: 80%;
+			}
+			dd {
+				background: #fff;
+				margin:0;
+				padding:3px 6px;
+				overflow: hidden;
+			}
+			
+			@media only screen {
+				.handheld {
+					display: none;
+				}
+				
+				.screen {
+					color: black;
+				}
+			}
+			@media only handheld {
+				.screen {
+					display: none;
+				}
+				
+				.handheld {
+					color: black;
+				}
+				
+			}
+			@media only all and (min-device-width: 481px) {
+				.width-over {
+					color: black;
+				}
+				
+				.width-under {
+					display: none;
+				}
+			}
+			@media only all and (max-device-width: 480px) {
+				.width-over {
+					display: none;
+				}
+				
+				.width-under {
+					color: black;
+				}
+			}
+			@media only all and (orientation: portrait) {
+				.portrait {
+					color: black;
+				}
+				.landscape {
+					display: none;
+				}
+			}
+			@media only all and (orientation: landscape) {
+				.portrait {
+					display: none;
+				}
+				.landscape {
+					color: black;
+				}
+			}
+			@media only all and (device-aspect-ratio: 320/480) {
+				.ratio-360x640, .ratio-800x600 {
+					display: none;
+				}
+				.ratio-320x480 {
+					color: black;
+				}
+			}
+			@media only all and (device-aspect-ratio: 360/640) {
+				.ratio-320x480, .ratio-800x600 {
+					display: none;
+				}
+				.ratio-360x640 {
+					color: black;
+				}
+			}
+			@media only all and (min-device-aspect-ratio: 800/600) {
+				.ratio-320x480, .ratio-360x640 {
+					display: none;
+				}
+				.ratio-800x600 {
+					color: black;
+				}
+			}
+			@media only all and (color: 2) {
+				.color-16bit, .color-24bit {
+					display: none;
+				}
+				.color-8bit {
+			
+				}
+			}
+			@media only all and (color: 4) {
+				.color-8bit, .color-24bit {
+					display: none;
+				}
+				.color-16bit {
+			
+				}
+			}
+			@media only all and (color: 8) {
+				.color-8bit, .color-16bit {
+					display: none;
+				}
+				.color-24bit {
+			
+				}
+			}

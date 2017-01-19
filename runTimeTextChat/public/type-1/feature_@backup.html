@@ -1,0 +1,415 @@
+﻿<html>
+	<head>
+		<title>Forum Nokia Device and Feature Detection Sampler</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name = "viewport" content = "width = device-width" />
+		<script type="text/javascript">
+		//<![CDATA[
+			tests = {
+			   run : function() {
+					// define the feature tests that we wish to run
+					var features = [	{"label":"touch", test:this.supportsTouch()},
+									 	{"label":"local storage", "test": this.supportsLocalStorage()},
+									 	{"label":"canvas", "test": this.supportsCanvas()},
+									 	{"label":"video", "test": this.supportsVideo()},
+									 	{"label":"h264 Baseline", "test": this.supportsH264BaselineVideo()},
+									 	{"label":"Ogg Theora", "test": this.supportsOggTheoraVideo()},
+									 	{"label":"WebM", "test": this.supportsWebMVideo()},
+									 	{"label":"web workers", "test": this.supportsWebWorkers()},
+									 	{"label":"app cache", "test": this.supportsAppCache()},
+									 	{"label":"geo-location", "test": this.supportsGeoLocation()},
+									 	{"label":"microdata API", "test": this.supportsMicrodataAPI()}	];
+					// iterate through the defined feature tests and display the results in #js-features list
+					for (var _test in features) {
+						this.displayResults('js-features', features[_test].label, features[_test].test);
+					}
+					
+			    	// define the objects we wish to inspect
+			    	var objects = [ "navigator", "screen"];
+			    	// iterate through the defined object inspections and display the results in #js-objects list
+					for (var _obj in objects) {
+						var object = window[objects[_obj]];
+						for (var _prop in object) {
+							this.displayResults('js-objects', objects[_obj] + "." + _prop, object[_prop]);
+						}
+		        	}
+			    },
+			    // help function that takes an element #id along with a key/value pair to append as dt/dd elements respectively
+			    displayResults : function(id, key, value) {
+			    	var _dt = document.createElement('dt');
+			    	_dt.appendChild(document.createTextNode(key + ":"));
+			    	var _dd = document.createElement('dd');
+			    	_dd.appendChild(document.createTextNode(value));
+			    	var _results = document.getElementById(id);
+			    	if (_results) {
+			    		_results.appendChild(_dt);
+			    		_results.appendChild(_dd);
+			    	}
+				},
+				// feature test for HTML5 local storage support
+				supportsLocalStorage : function() {
+				  return !!(('localStorage' in window) && window['localStorage']);
+				},
+				// feature test for HTML5 touch event support
+				supportsTouch: function() {
+					return !!(('createTouch' in document) && document['createTouch']);
+				},
+				// feature test for HTML5 canvas support
+				supportsCanvas : function() {
+					return !!document.createElement('canvas').getContext;
+				},
+				// feature test for HTML5 video support
+				supportsVideo : function() {
+					return !!document.createElement('video').canPlayType;
+				},
+				// feature test for H264Baseline format and codec support within HTML5 video
+				supportsH264BaselineVideo : function() {
+					if (!this.supportsVideo()) { return false; }
+					var v = document.createElement("video");
+					return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"') || "probably not";
+				},
+				// feature test for OggTheora format and codec support within HTML5 video
+				supportsOggTheoraVideo : function() {
+					if (!this.supportsVideo()) { return false; };
+					var v = document.createElement("video");
+					return v.canPlayType('video/ogg; codecs="theora, vorbis"') || "probably not";
+				},
+				// feature test for WebM format and codec support within HTML5 video
+				supportsWebMVideo : function() {
+					if (!this.supportsVideo()) { return false; };
+					var v = document.createElement("video");
+					return v.canPlayType('video/webm; codecs="vp8, vorbis"')  || "probably not";
+				},
+				// feature test for HTML5 web workers support
+				supportsWebWorkers : function() {
+				  return !!window.Worker;
+				},
+				// feature test for HTML5 app cache support
+				supportsAppCache : function() {
+				  return !!window.applicationCache;
+				},
+				// feature test for HTML5 geo-location support
+				supportsGeoLocation : function() {
+				  return !!navigator.geolocation;
+				},
+				// feature test for HTML5 microdata support
+				supportsMicrodataAPI : function() {
+				  return !!document.getItems;
+				}
+			}
+		//]]>
+		</script>
+		<style type="text/css">
+			body {
+				background: #fff;
+				margin:0;
+				padding:0;
+				font-family: "Lucida Grande", Verdana, Arial, sans-serif
+			}
+			#wrap {
+				min-width: 240px;
+				max-width: 800px;
+				margin:0 auto;
+				padding:0;
+			}
+			h1 {
+				background: #fff;
+				margin:0;
+				padding:3px 6px;
+				color: #03C;
+			}
+			h2 {
+				background: #4CA826;
+				margin:3px 0;
+				padding:3px 6px;
+				color: #fff;
+			}
+			p {
+				margin:0;
+				padding:3px 6px;
+				font-style: italic;
+				font-size: .9em;
+			}
+			dl {
+				margin:0;
+				padding:0;
+			}
+			dt {
+				background: #CAD5F5;
+				margin:0;
+				padding:3px 6px;
+				font-weight: bold;
+				font-size: 80%;
+			}
+			dd {
+				background: #fff;
+				margin:0;
+				padding:3px 6px;
+				overflow: hidden;
+			}
+			
+			@media only screen {
+				.handheld {
+					display: none;
+				}
+				
+				.screen {
+					color: black;
+				}
+			}
+			@media only handheld {
+				.screen {
+					display: none;
+				}
+				
+				.handheld {
+					color: black;
+				}
+				
+			}
+			@media only all and (min-device-width: 481px) {
+				.width-over {
+					color: black;
+				}
+				
+				.width-under {
+					display: none;
+				}
+			}
+			@media only all and (max-device-width: 480px) {
+				.width-over {
+					display: none;
+				}
+				
+				.width-under {
+					color: black;
+				}
+			}
+			@media only all and (orientation: portrait) {
+				.portrait {
+					color: black;
+				}
+				.landscape {
+					display: none;
+				}
+			}
+			@media only all and (orientation: landscape) {
+				.portrait {
+					display: none;
+				}
+				.landscape {
+					color: black;
+				}
+			}
+			@media only all and (device-aspect-ratio: 320/480) {
+				.ratio-360x640, .ratio-800x600 {
+					display: none;
+				}
+				.ratio-320x480 {
+					color: black;
+				}
+			}
+			@media only all and (device-aspect-ratio: 360/640) {
+				.ratio-320x480, .ratio-800x600 {
+					display: none;
+				}
+				.ratio-360x640 {
+					color: black;
+				}
+			}
+			@media only all and (min-device-aspect-ratio: 800/600) {
+				.ratio-320x480, .ratio-360x640 {
+					display: none;
+				}
+				.ratio-800x600 {
+					color: black;
+				}
+			}
+			@media only all and (color: 2) {
+				.color-16bit, .color-24bit {
+					display: none;
+				}
+				.color-8bit {
+			
+				}
+			}
+			@media only all and (color: 4) {
+				.color-8bit, .color-24bit {
+					display: none;
+				}
+				.color-16bit {
+			
+				}
+			}
+			@media only all and (color: 8) {
+				.color-8bit, .color-16bit {
+					display: none;
+				}
+				.color-24bit {
+			
+				}
+			}
+		</style>
+	</head>
+	<body>
+	<div id="wrap">	
+		<h1>Device and Feature Detection Sampler</h1>
+		<p>This page demonstrates various device detection techniques, and provides a sample
+		 of the data returned from them. 
+		<strong>Note:</strong> The list of properties returned is not a complete list of what is available.
+		 Please see each respective technology for full information.</p>
+		
+		<h2>HTTP headers</h2>
+		<dl id="headers">
+		<?php
+			// define a list of header properties that we do not wish to display (for security reasons)
+			$omitList = array ( "PATH",
+							  	"DATABASE_SERVER",
+							  	"SITE_ROOT",
+							  	"SITE_CGIROOT",
+							  	"SITE_HTMLROOT",
+							  	"HTTP_PHPCONF",
+							  	"SERVER_SIGNATURE",
+							  	"SERVER_NAME",
+							  	"SERVER_ADDR",
+							  	"REMOTE_ADDR",
+							  	"SERVER_SOFTWARE", 
+							  	"DOCUMENT_ROOT",
+							  	"SERVER_ADMIN",
+							  	"SCRIPT_FILENAME",
+							  	"ORIG_SCRIPT_FILENAME",
+							  	"ORIG_PATH_INFO",
+							  	"ORIG_SCRIPT_NAME",
+							  	"ORIG_PATH_TRANSLATED"
+			);
+			// iterate through $_SERVER var and display header properties if they are not included in the $omitList
+			foreach($_SERVER as $key => $value) {
+				if (!in_array($key, $omitList)) {
+		            if(substr($key, 0, 5) == 'HTTP_') {
+		                $headers[str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($key, 5)))))] = $value;
+		            }
+		            echo "\t\t\t<dt>".$key.": </dt>\n";
+					echo "\t\t\t<dd>".(strlen($value)>0?$value:"&nbsp;")."</dd>\n";
+				}
+	        }
+		?>
+		</dl>
+
+		<h2>UAProf</h2>
+		<p><strong>Note:</strong> If no values are visible, this indicates that a UAProf is not available for this device.
+		</p>
+		<dl id="ua-prof">
+		<?php		
+			$hasUAProf = false;	
+			// load the UAProf if one is specified in the X_WAP_PROFILE header property
+			if (isset($_SERVER['HTTP_X_WAP_PROFILE'])) {
+				$xmlUrl = $_SERVER['HTTP_X_WAP_PROFILE'];
+				// sample UAProfiles available at the following URL's for testing
+				// $xmlUrl = "http://nds1.nds.nokia.com/uaprof/NE71-1r100.xml";
+				// $xmlUrl = "http://nds1.nds.nokia.com/uaprof/NN97-4r100-2G.xml";
+				$xmlUrl = str_replace('\r', '', $xmlUrl);
+				$xmlUrl = str_replace('\n', '', $xmlUrl);
+				$xmlUrl = str_replace('"', '', $xmlUrl);
+				$xmlUrl = str_replace("'", '', $xmlUrl);
+				try {
+					$curl_handle = curl_init();
+					curl_setopt($curl_handle,CURLOPT_URL,$xmlUrl);
+					curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
+					curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
+					$xmlStr = curl_exec($curl_handle);
+					curl_close($curl_handle);
+				} catch (Exception $e) {
+					// unable to access specified file via $xmlUrl
+				}
+	
+				if (!empty($xmlStr)) {
+					try {
+						 $xmlObj = simplexml_load_string($xmlStr);
+						 $hasUAProf = true;
+					} catch(Exception $e) {
+						// unable to load $xmlStr
+					}
+				};
+			};
+
+
+			// define a short list of properties we wish to display from the UAProf
+			$varList = array (  "Vendor",
+								  "Model",
+								  "OSName",
+								  "OSVendor",
+								  "OSVersion",
+								  "SoftwareNumber",
+								  "ScreenSize",
+								  "PixelAspectRatio", 
+								  "BitsPerPixel",
+								  "Keyboard",
+			);
+			
+			// if we have a UAProfile iterate through and display the properties defined above 
+			if ($hasUAProf) {
+				try {
+					foreach ($varList as $var) {
+						$query = "/rdf:RDF/rdf:Description/prf:component/rdf:Description/prf:".$var;
+						$result = $xmlObj->xpath($query);
+						foreach ($result as $property) {
+							echo "\t\t\t<dt>".$var.": </dt>\n";
+							echo "\t\t\t<dd>".$property."</dd>\n";
+						};
+					};
+				} catch (Exception $e) {
+					echo "\t\t\t<dt>parsing error: </dt>\n";
+					echo "\t\t\t<dd>".$e->getMessage()."</dd>\n";
+				}
+			} else {
+				echo "\t\t\t<dt>unavailable: </dt>\n";
+				echo "\t\t\t<dd>n/a</dd>\n";
+			};
+		?>
+		</dl>
+		
+		<h2>CSS media queries</h2>
+		<p><strong>Note:</strong> Only one value should be visible for each feature below. 
+		If more than one value is visible, this indicates that the corresponding feature is not supported.</p>
+		<dl id="css-media-queries">
+			<dt>media-type:</dt>
+			<dd class="screen">screen</dd>
+			<dd class="handheld">handheld</dd>
+			<dt>device-width:</dt>
+			<dd class="width-over">*OVER* 480 pixels</dd>
+			<dd class="width-under">*UNDER* 480 pixels</dd>
+			<dt>orientation:</dt>
+			<dd class="portrait">portrait</dd>
+			<dd class="landscape">landscape</dd>
+			<dt>aspect-ratio:</dt>
+			<dd class="ratio-320x480">320x480</dd>
+			<dd class="ratio-360x640">360x640</dd>
+			<dd class="ratio-800x600">800x600</dd>
+			<dt>color:</dt>
+			<dd class="color-8bit">8bit</dd>
+			<dd class="color-16bit">16bit</dd>
+			<dd class="color-24bit">24bit</dd>
+		</dl>
+		
+		<h2>Javascript feature detection (HTML 5)</h2>
+		<p><strong>Reminder:</strong> You will not find support for 
+		<a href="http://dev.w3.org/html5/spec/Overview.html">HTML 5</a> features on older browsers.</p>
+		<dl id="js-features"></dl>
+		
+		<h2>Javascript object detection</h2>
+		<p><strong>Note:</strong> The following only includes a small subset of the available values.
+		 Only properties of the navigator and screen objects are being displayed.</p>
+		<dl id="js-objects"></dl>
+		
+		<h2>Reminder</h2>
+		<p>The list of properties returned is not a complete list of what is available.
+		 Please see each respective technology for full information.</p>
+	</div>
+	<script type="text/javascript">
+	//<![CDATA[
+		// run the Javascript tests
+		window.onload = tests.run();
+	//]]>
+	</script>
+	</body>
+</html>

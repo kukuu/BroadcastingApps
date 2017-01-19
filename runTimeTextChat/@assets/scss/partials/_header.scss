@@ -1,0 +1,272 @@
+$header_color: #fff;
+$header_color_dark: #000;
+$header_color_over: #999;
+$header_color_dark_over: #999;
+
+#header {
+	// transitions
+	#nav {
+		.nav_bars i,
+		.nav_items ul li a,
+		.nav_settings {
+			@include transition(color 350ms);
+		}
+	}
+	#nav {
+		display: block;
+		width: 100%;
+		z-index: 500;
+
+		.nav_header {
+			position: absolute;
+			width: 100%;
+			z-index: 501;
+		}
+		.nav_brand,
+		.nav_bars {
+			position: absolute;
+			display: block;
+		}
+		.nav_brand {
+			margin: 29px 0 0 59px;
+			width: 28px;
+			height: 37px;
+			background: url('../../assets/img/header/logo.png') 0 -40px no-repeat;
+		}
+		.nav_bars {
+			top: 31px;
+			right: 46px;
+			padding: 8px 4px;
+			cursor: pointer;
+
+			i {
+				display: block;
+				width: 26px;
+				height: 3px;
+				background: $header_color;
+				margin-top: 5px;
+				// @include transition(color 350ms);
+
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+		.nav_settings {
+			display: none;
+			cursor: pointer;
+			color: $header_color;
+
+			&.active,
+			&:hover,
+			&:focus {
+				color: $header_color_over;
+			}
+		}
+		.nav_items {
+
+			ul, ul li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			ul {
+				position: relative;
+				padding-top: 31px;
+
+				li {
+					a {
+						font-size: 20px;
+						text-align: center;
+						text-transform: uppercase;
+						color: $header_color;
+						// @include transition(color 350ms);
+
+						float: left;
+						position: relative;
+						z-index: 500;
+						display: block;
+						width: 100%;
+						padding: 4px 40px;
+
+						&.active,
+						&:hover,
+						&:focus {
+							text-decoration: none;
+							color: $header_color_over;
+						}
+					}
+					&:last-child a {
+						margin-bottom: 10px;
+					}
+					&.nav_item_search a {
+						cursor: pointer;
+						font-size: 16px;
+					}
+				}
+			}
+		}
+
+		&.nav_theme_dark,
+		&.nav_locked {
+			.nav_brand {
+				background-position: 0 0;
+			}
+			.nav_bars {
+				i {
+					background-color: $header_color_dark;
+				}
+			}
+			.nav_settings {
+				color: $header_color_dark;
+
+				&.active,
+				&:hover,
+				&:focus {
+					color: $header_color_dark_over;
+				}
+			}
+			.nav_items {
+				ul li a {
+					color: $header_color_dark;
+
+					&.active,
+					&:hover {
+						color: $header_color_dark_over;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $screen-sm) {
+	#header {
+
+		#nav {
+			position: absolute;
+			height: 93px;
+
+			.nav_bg {
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: #fff;
+				top: -94px;
+				@include transition(top 750ms $easeOutQuart);
+
+				&.nav_border {
+					border-bottom: 1px solid $headerKeyline;
+				}
+			}
+
+			.nav_wrap {
+				position: relative;
+			}
+			.nav_wrap_space {
+				position: relative;
+				margin: 0;
+				// @include transition(margin 750ms cubic-bezier(0.175, 0.885, 0.320, 1.275));
+				@include transition(margin 850ms $easeOutQuart);
+			}
+
+			.nav_settings {
+				position: absolute;
+				display: block;
+				top: 28px;
+				right: 26px;
+				padding: 8px 4px;
+				font-size: 18px;
+			}
+
+			.nav_items {
+				padding-top: 32px;
+				padding-left: 120px;
+
+				.nav_items_wrap {
+					display: block;
+					margin: 0 auto;
+					max-width: 620px;
+					padding: 0;
+				}
+
+				ul {
+					padding: 0;
+
+					li {
+						a {
+							margin: 0 16px;
+							padding: 2px 8px;
+
+							width: auto;
+							border: none;
+							text-align: left;
+						}
+						&:first-child a {
+							margin-left: 0;
+						}
+						&:last-child a {
+							margin-right: 0;
+							margin-bottom: 0;
+						}
+						&.nav_item_search a {
+							margin-top: 3px;
+						}
+					}
+				}
+			}
+
+			&.nav_locked {
+				position: fixed;
+
+				.nav_bg {
+					top: 0;
+				}
+
+				.nav_wrap {
+					margin-top: -40px;
+				}
+				.nav_wrap_space {
+					margin-top: 40px;
+				}
+			}
+		}
+	}
+}
+@media (min-width: $screen-md) {
+	#header {
+		#nav {
+			.nav_settings {
+				right: 46px;
+			}
+		}
+	}
+}
+// @media (min-width: $screen-lg) {}
+
+
+// ---------------------------------------------------
+// Page menu component (sticky content menu)
+// ---------------------------------------------------
+.headerchild {
+	.headerchild_wrap {
+		&.headerchild_lock {
+			position: fixed;
+			z-index: 400;
+
+			display: block;
+			background: #fff;
+			border-bottom: 1px solid $headerKeyline;
+		}
+	}
+}
+#view-container > .headerchild_block {
+	margin: 0;
+	position: fixed;
+	z-index: 400;
+	top: -300px;
+
+	// @include transition(top 500ms ease-in-out);
+	@include transition(top 750ms $easeInOutQuart);
+}
